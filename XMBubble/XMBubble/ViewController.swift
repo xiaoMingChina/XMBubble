@@ -11,15 +11,16 @@ import SpriteKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var bubbleSceneView: SKView!
+    @IBOutlet weak var settingView: UIView!
+    @IBOutlet weak var explaintionView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-    
         
-        let skView = self.view as! SKView
-        let scene = XMBubbleScene.init(size: skView.bounds.size)
-        skView.ignoresSiblingOrder = true
+        let scene = XMBubbleScene.init(size: bubbleSceneView.frame.size)
+        bubbleSceneView.ignoresSiblingOrder = true
         scene.scaleMode = .AspectFill
-        skView .presentScene(scene)
+        bubbleSceneView .presentScene(scene)
     }
     
     

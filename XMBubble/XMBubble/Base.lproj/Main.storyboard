@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -13,14 +14,74 @@
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="SKView">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Hi-GD-nWx" userLabel="Bubble Scene View" customClass="SKView">
+                                <rect key="frame" x="-200" y="142" width="720" height="312"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ppe-Uc-24q" userLabel="Setting View">
+                                <rect key="frame" x="0.0" y="454" width="320" height="114"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ax9-RS-9WZ" userLabel="Explanation View">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="142"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="选择你喜爱的音乐类型" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLi-Ig-WD5">
+                                        <rect key="frame" x="40" y="27" width="240" height="39"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="39" id="l9P-vw-UNK"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="点击一下您喜欢的类型，点两下你喜爱的类型" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rth-gZ-t7d">
+                                        <rect key="frame" x="40" y="67" width="230" height="49"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="rth-gZ-t7d" secondAttribute="bottom" constant="26" id="1JT-0s-N9g"/>
+                                    <constraint firstAttribute="trailing" secondItem="fLi-Ig-WD5" secondAttribute="trailing" constant="40" id="7Wx-Tv-KiX"/>
+                                    <constraint firstItem="fLi-Ig-WD5" firstAttribute="leading" secondItem="ax9-RS-9WZ" secondAttribute="leading" constant="40" id="LXK-4Q-gjd"/>
+                                    <constraint firstAttribute="trailing" secondItem="rth-gZ-t7d" secondAttribute="trailing" constant="50" id="Q4W-gA-LDV"/>
+                                    <constraint firstItem="rth-gZ-t7d" firstAttribute="leading" secondItem="ax9-RS-9WZ" secondAttribute="leading" constant="40" id="Xzu-Lx-gl4"/>
+                                    <constraint firstItem="rth-gZ-t7d" firstAttribute="top" secondItem="fLi-Ig-WD5" secondAttribute="bottom" constant="1" id="pwA-iW-EJc"/>
+                                    <constraint firstItem="fLi-Ig-WD5" firstAttribute="top" secondItem="ax9-RS-9WZ" secondAttribute="top" constant="27" id="sGd-sc-Kt4"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ax9-RS-9WZ" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1:4" id="9Ax-ve-o29"/>
+                            <constraint firstItem="Ppe-Uc-24q" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1:5" id="9oV-Hj-mKA"/>
+                            <constraint firstItem="6Hi-GD-nWx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="-200" id="EgB-ZA-5K1"/>
+                            <constraint firstAttribute="trailing" secondItem="Ppe-Uc-24q" secondAttribute="trailing" id="HfC-yF-JvE"/>
+                            <constraint firstItem="Ppe-Uc-24q" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Mvi-7D-U4X"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Ppe-Uc-24q" secondAttribute="bottom" id="WyQ-Ds-5tj"/>
+                            <constraint firstItem="Ppe-Uc-24q" firstAttribute="top" secondItem="6Hi-GD-nWx" secondAttribute="bottom" id="Z8S-J0-9sK"/>
+                            <constraint firstAttribute="trailing" secondItem="6Hi-GD-nWx" secondAttribute="trailing" constant="-200" id="cde-Xr-TPi"/>
+                            <constraint firstItem="ax9-RS-9WZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="fHG-Mb-72j"/>
+                            <constraint firstItem="ax9-RS-9WZ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="ogE-5y-aA1"/>
+                            <constraint firstItem="6Hi-GD-nWx" firstAttribute="top" secondItem="ax9-RS-9WZ" secondAttribute="bottom" id="ta9-2c-5h7"/>
+                            <constraint firstAttribute="trailing" secondItem="ax9-RS-9WZ" secondAttribute="trailing" id="uju-PN-yap"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="bubbleSceneView" destination="6Hi-GD-nWx" id="AnR-pw-VRR"/>
+                        <outlet property="explaintionView" destination="ax9-RS-9WZ" id="BXd-6Q-q2K"/>
+                        <outlet property="settingView" destination="Ppe-Uc-24q" id="E5e-Gk-n00"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="176" y="291"/>
         </scene>
     </scenes>
 </document>

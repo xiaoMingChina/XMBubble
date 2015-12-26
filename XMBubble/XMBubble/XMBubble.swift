@@ -8,15 +8,25 @@
 
 import SpriteKit
 
+enum LoveDegree {
+    case Normal
+    case Like
+    case Love
+}
+
+
 class XMBubble: SKSpriteNode {
 
     
     init() {
+        
         let texture = SKTexture(imageNamed: "Bubble")
-        super.init(texture: texture, color: UIColor.clearColor(), size: texture.size())
+        let textureSize = CGSizeMake(80, 80)
+        super.init(texture: texture, color: UIColor.clearColor(), size: textureSize )
         self.physicsBody = SKPhysicsBody.init(circleOfRadius: self.size.width / 2 + 1)
         self.physicsBody?.affectedByGravity = false
         self.physicsBody?.applyImpulse(self.randomVector())
+        
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -24,6 +34,8 @@ class XMBubble: SKSpriteNode {
         fatalError("init(coder:) has not been implemented")
     }
     
+    var loveDegree : LoveDegree = LoveDegree.Normal
+
     func randomValue() -> CGFloat{
         let a = CGFloat(arc4random_uniform(101))
         let b = CGFloat(a / 100)
@@ -38,4 +50,25 @@ class XMBubble: SKSpriteNode {
         return vector
     }
     
+    func runActionWithChangedLoveDegree(scaleto:CGFloat) {
+        let scaleAction = SKAction .scaleTo(scaleto, duration: 0.2)
+        self .runAction(scaleAction)
+    }
+   internal func changeLoveDegree() {
+    switch self.loveDegree {
+    case .Normal:
+        loveDegree = .Like
+        self .runActionWithChangedLoveDegree(1.3)
+        NSLog("Normal")
+    case .Like:
+        NSLog("Like")
+        loveDegree = .Love
+        self .runActionWithChangedLoveDegree(1.6)
+    case .Love:
+        NSLog("Love")
+        loveDegree = .Normal
+        self .runActionWithChangedLoveDegree(1)
+    }
+
+    }
 }
