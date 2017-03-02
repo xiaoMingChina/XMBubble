@@ -2,8 +2,9 @@
 //  ViewController.swift
 //  XMBubble
 //
-//  Created by zlm on 15/12/17.
-//  Copyright © 2015年 zlm. All rights reserved.
+//  Created by xiaoming on 15/12/17.
+//  Changed by xiaoming on 17/3/1.
+//  Copyright © 2015年 小明. All rights reserved.
 //
 
 import UIKit
@@ -19,26 +20,8 @@ class ViewController: UIViewController {
         
         let scene = XMBubbleScene.init(size: bubbleSceneView.frame.size)
         bubbleSceneView.ignoresSiblingOrder = true
-        scene.scaleMode = .AspectFill
+        scene.scaleMode = .aspectFill
         bubbleSceneView .presentScene(scene)
-    }
-    
-    
-    
-    override func shouldAutorotate() -> Bool {
-        return true
-    }
-    
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
-            return .AllButUpsideDown
-        } else {
-            return .All
-        }
-    }
-    
-    override func prefersStatusBarHidden() -> Bool {
-        return true
     }
     
 }
