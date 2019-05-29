@@ -60,7 +60,7 @@ class XMBubbleScene: SKScene {
         timer!.fire()
     }
     
-    func toCenterAction() {
+    @objc func toCenterAction() {
         let childrens = self.children as NSArray
         childrens .enumerateObjects({ (AnyObject, Int, Bool) -> Void in
             let bubble = AnyObject as? XMBubble
